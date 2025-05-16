@@ -1,0 +1,43 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Designation</th>
+            </tr>
+
+        </thead>
+        <!-- [class]="item.company.designation==='angular Developer' ? 'bg-success' : '' " -->
+        <tbody>
+            <tr>
+                <td>
+                    <!-- <i class="bi bi-search"></i> -->
+                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </td>
+                <td>
+                    <!-- <i class="bi bi-search"></i> -->
+                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </td>
+                <td>
+                    <!-- <i class="bi bi-search"></i> -->
+                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </td>
+
+            </tr>
+            @for (item of (usersList() | searchPipe: usersList() ) ; track $index) {
+            <tr class="bg-success">
+                <td>{{item.name}}</td>
+                <td>{{item.company.name}}</td>
+                <td>{{item.company.designation}}</td>
+            </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+</div>
