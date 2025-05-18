@@ -13,29 +13,38 @@
             <tr>
                 <td>
                     <!-- <i class="bi bi-search"></i> -->
-                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="search" [(ngModel)]="searchName" class="form-control" id="1" placeholder="🔍 Search">
 
                 </td>
                 <td>
                     <!-- <i class="bi bi-search"></i> -->
-                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="search" [(ngModel)]="searchCompany" class="form-control" id="2" placeholder="🔍 Search">
 
                 </td>
                 <td>
                     <!-- <i class="bi bi-search"></i> -->
-                    <input type="email" [(ngModel)]="searchValue" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="search" [(ngModel)]="searchDesignation" class="form-control" id="3" placeholder="🔍 Search">
 
                 </td>
 
             </tr>
-            @for (item of (usersList() | searchPipe: usersList() ) ; track $index) {
-            <tr class="bg-success">
-                <td>{{item.name}}</td>
-                <td>{{item.company.name}}</td>
-                <td>{{item.company.designation}}</td>
+            @for (item of usersList() | searchPipe:searchName:'name' | searchPipe:searchCompany:'company.name' | searchPipe:searchDesignation:'company.designation' ; track $index) {
+            <tr>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.name}}</td>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.company.name}}</td>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.company.designation}}</td>
             </tr>
 
             }
+
+             <!-- @for (item of usersList() | searchPipe:searchName| searchPipe:searchCompany | searchPipe:searchDesignation ; track $index) {
+            <tr>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.name}}</td>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.company.name}}</td>
+                <td [ngClass]="{ 'bg-success':item.company.designation==='angular Developer' }">{{item.company.designation}}</td>
+            </tr>
+
+            } -->
 
 
         </tbody>

@@ -1,3 +1,13 @@
 .active{
-    background: green;
+    background: green !important;
+}
+
+.search{
+    background-image: url('https://static-00.iconduck.com/assets.00/search-icon-2048x2048-cmujl7en.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 15px 15px;
+    background-position-x: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
